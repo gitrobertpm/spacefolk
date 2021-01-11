@@ -36,7 +36,7 @@ async function getPeopleInSpace(url) {
     const standardResults = profiles.filter(prof => prof.type === 'standard');
 
     // Make a new request to get list of pages related to query value that resulted in disambiguation pages
-    const relatedPages = await Promise.all(disambiguationResults.map( async result => await getJSON(wikiRelated + result.title + '?pages=50')));
+    const relatedPages = await Promise.all(disambiguationResults.map( async result => await getJSON(wikiRelated + result.title)));
 
     // Helper function for checking if string contains certain space related terms
     const spacey = str => str.includes('astronaut') || str.includes('NASA') || str.includes('space') || str.includes('cosmonaut');
